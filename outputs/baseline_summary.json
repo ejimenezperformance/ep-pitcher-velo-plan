@@ -1,0 +1,106 @@
+{
+  "pairs_tested": 1091,
+  "drops": 176,
+  "drop_share_of_pairs": 0.1613198900091659,
+  "status_counts": {
+    "not_recovered": 92,
+    "no_mlb_data": 64,
+    "recovered": 20
+  },
+  "recovery_rate_with_data": 0.17857142857142858,
+  "median_drop_mph": -1.3256271781529634,
+  "median_regain_mph": -0.022110126994959955,
+  "stable_next_change_mean": -0.16029731501024477,
+  "drop_next_change_mean": 0.044694467514189054,
+  "by_year": {
+    "2018": {
+      "no_mlb_data": 13,
+      "not_recovered": 35,
+      "recovered": 5
+    },
+    "2022": {
+      "no_mlb_data": 14,
+      "not_recovered": 13,
+      "recovered": 3
+    },
+    "2023": {
+      "no_mlb_data": 13,
+      "not_recovered": 13,
+      "recovered": 4
+    },
+    "2024": {
+      "no_mlb_data": 16,
+      "not_recovered": 21,
+      "recovered": 5
+    },
+    "2025": {
+      "no_mlb_data": 8,
+      "not_recovered": 10,
+      "recovered": 3
+    }
+  },
+  "headline_test": {
+    "recovered": 20,
+    "n": 112,
+    "rate": 0.17857142857142858,
+    "wilson_ci": [
+      0.11867660544910417,
+      0.2597842605225026
+    ],
+    "binomial_p_vs_50pct": 1.5940428279271969e-12,
+    "label": "CONFIRMED"
+  },
+  "no_next_data_vs_stable": {
+    "drops_rate": 0.36363636363636365,
+    "stable_rate": 0.2792607802874743,
+    "n_stable": 487,
+    "diff_pp": 8.437558334888934,
+    "fisher_p": 0.04400552101026296,
+    "cohens_h": 0.18101908112191678,
+    "label": "NOT CONFIRMED"
+  },
+  "regain_vs_stable": {
+    "mannwhitney_p": 0.011992961255503864,
+    "cohens_d": 0.23686830085314067
+  },
+  "model": {
+    "n": 112,
+    "auc": 0.5375000000000001,
+    "auc_ci": [
+      0.39607546048722525,
+      0.6742650734145578
+    ],
+    "auc_drop_only": 0.2679347826086957,
+    "auc_gain_ci": [
+      0.1249926122931442,
+      0.4136470170454545
+    ],
+    "coefs": {
+      "drop_mph": -0.3456235668939463,
+      "age": -0.31213624437336607,
+      "absence": 0.30339993194952647,
+      "role_to_sp": -0.5466916193402457,
+      "early_down": -0.10740104629758965,
+      "fade_mph": 0.3961386139472158,
+      "fb_base": -0.14834018349371053
+    },
+    "label": "NOT CONFIRMED"
+  },
+  "calibration": {
+    "low": {
+      "n": 38,
+      "predicted": 0.076,
+      "actual": 0.105
+    },
+    "mid": {
+      "n": 37,
+      "predicted": 0.158,
+      "actual": 0.243
+    },
+    "high": {
+      "n": 37,
+      "predicted": 0.293,
+      "actual": 0.189
+    }
+  }
+}

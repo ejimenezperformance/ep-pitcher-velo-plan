@@ -1,0 +1,22 @@
+player_name,pitch_type,age,velo_base,velo_drop_year,drop_mph,velo_first5,fade_mph,early_down,absence,max_gap,role_to_sp,role_to_rp,fb_drop_year,injury_type,reason,lane
+"Ober, Bailey",FF,30.0,90.26,88.04,-2.23,88.84,-0.93,1,1,40.0,0,0,660,,,MEDICAL FIRST
+"Yates, Kirby",FF,39.0,92.76,90.8,-1.96,90.2,0.43,1,1,24.0,0,0,477,,,MEDICAL FIRST
+"Santillan, Tony",FF,29.0,96.26,94.52,-1.74,93.94,-0.33,1,1,61.0,0,0,439,,,MEDICAL FIRST
+"Wrobleski, Justin",FF,25.0,96.06,94.67,-1.39,93.62,1.12,1,1,17.0,1,0,1049,,,MEDICAL FIRST
+"Mize, Casey",FF,29.0,94.6,93.28,-1.32,93.28,-0.42,1,1,21.0,0,0,727,,,MEDICAL FIRST
+"Sheehan, Emmet",FF,26.0,95.63,94.37,-1.25,94.21,-0.22,1,1,36.0,0,0,836,,,MEDICAL FIRST
+"Megill, Trevor",FF,32.0,99.16,97.94,-1.22,97.38,0.33,1,0,11.0,0,0,565,Flexor strain (throwing arm) Aug 2025,"Placed on IL late Aug 2025 with a flexor strain; the 2026 drop follows an arm injury. Source: CBS Sports, 2025-08-27",MEDICAL FIRST
+"Halvorsen, Seth",FF,26.0,100.04,98.92,-1.12,98.69,0.39,1,1,42.0,0,0,313,,,MEDICAL FIRST
+"De Los Santos, Enyel",FF,30.0,96.16,95.07,-1.1,94.08,0.1,1,0,5.0,0,0,505,Right knee tendinitis (season-ending IL) Sep 2026,"15-day IL on 2026-09-19, season over; est. return 2027-02-01. Source: RotoWire",MEDICAL FIRST
+"Matthews, Zebby",FF,26.0,96.25,95.18,-1.06,95.39,0.14,0,1,9.0,0,0,757,,,MEDICAL FIRST
+"Abreu, Bryan",FF,29.0,97.3,95.7,-1.6,95.23,1.42,1,0,9.0,0,0,481,Restricted list (personal matter) Jun 22-25 2026,"Not an injury. Source: NBC Sports, 2026-06-22 and 2026-06-25",PHYSICAL PLAN
+"Chapman, Aroldis",FF,38.0,98.36,96.89,-1.47,96.04,-0.04,1,0,11.0,0,0,312,Lat tightness Sep 2026 (day-to-day; no IL),"Age 38: aging is the main alternative explanation. Source: MLB Trade Rumors, 2026-09-18",PHYSICAL PLAN
+"Skenes, Paul",FF,24.0,98.2,96.81,-1.39,97.33,-0.43,0,0,8.0,0,0,1180,No injury reported,"Manager said he is down about 1 mph; pulled after 65 pitches on 2026-08-11. Source: Field Level Media, 2026-08-11",PHYSICAL PLAN
+"Legumina, Casey",FF,29.0,94.3,92.98,-1.32,93.68,-0.67,0,0,12.0,0,0,482,No 2026 injury found,Traded SEA to TB on 2026-04-24. Source: Wikipedia (Casey Legumina),PHYSICAL PLAN
+"Baz, Shane",FF,27.0,96.97,95.84,-1.13,96.89,-0.63,0,0,8.0,0,0,993,Comebacker off right elbow 2026-09-15 (X-rays negative),"Late-season event; does not explain a season-long drop. Source: MLB.com, 2026-09-16",PHYSICAL PLAN
+"Singer, Brady",SI,29.0,92.2,91.12,-1.09,90.95,-0.22,1,0,13.0,0,0,1416,Bruised right foot 2026-05-12 (no IL),"Hit by a line drive; Francona noted a velocity dip right after. Source: MLB.com, 2026-05-13",PHYSICAL PLAN
+"McGreevy, Michael",FF,25.0,92.98,91.94,-1.04,91.17,0.67,1,0,9.0,0,0,683,Sprained ankle in spring 2026 (pitched through it),Fastball down 1.6 mph per MLB.com; he believes the ankle affected his mechanics. Lower-body cause: fits the physical plan. Source: MLB.com,PHYSICAL PLAN
+"Detmers, Reid",FF,26.0,95.84,94.05,-1.79,94.06,-0.19,1,0,8.0,1,0,1356,,,ROLE CHANGE
+"Leahy, Kyle",FF,29.0,95.43,94.25,-1.18,93.54,0.57,1,0,10.0,1,0,605,,,ROLE CHANGE
+"Burns, Chase",FF,23.0,98.68,97.66,-1.02,98.09,-0.55,0,0,13.0,1,0,1422,,,ROLE CHANGE
+"Mlodzinski, Carmen",FF,27.0,96.06,95.05,-1.01,94.75,0.12,1,0,10.0,1,0,537,,,ROLE CHANGE

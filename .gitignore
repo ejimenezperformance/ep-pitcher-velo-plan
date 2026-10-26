@@ -1,0 +1,4 @@
+data/raw/
+outputs/season_panel.csv
+__pycache__/
+*.pyc
