@@ -37,3 +37,17 @@ def why(r):
     if n.pitch_type != r.pitch_type: return "changed primary fastball"
     return "under 200 fastballs next year"
 print(d.apply(why, axis=1).value_counts())
+
+# Two robustness checks reported in the README
+d = e[e["is_drop"]]
+rob = {}
+# 1) Optimistic bound: assume every drop with no comparable next season recovered
+rob["optimistic_bound"] = {"recovered_if_all_missing_recovered": int((d["status"] != "not_recovered").sum()),
+                           "n": len(d), "rate": round(float((d["status"] != "not_recovered").mean()), 3)}
+# 2) Without 2018 (largest event year; rules out a tracking artifact driving the result)
+x = d[(d["year"] != 2018) & (d["status"] != "no_mlb_data")]
+lo, hi = proportion_confint(x["recovered"].sum(), len(x), method="wilson")
+rob["without_2018"] = {"recovered": int(x["recovered"].sum()), "n": len(x),
+                       "rate": round(float(x["recovered"].mean()), 3), "ci": [round(lo, 3), round(hi, 3)]}
+(OUT / "robustness.json").write_text(json.dumps(rob, indent=2), encoding="utf-8")
+print(json.dumps(rob, indent=2))

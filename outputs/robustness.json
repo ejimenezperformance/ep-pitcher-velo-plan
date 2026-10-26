@@ -1,0 +1,16 @@
+{
+  "optimistic_bound": {
+    "recovered_if_all_missing_recovered": 84,
+    "n": 176,
+    "rate": 0.477
+  },
+  "without_2018": {
+    "recovered": 15,
+    "n": 72,
+    "rate": 0.208,
+    "ci": [
+      0.131,
+      0.316
+    ]
+  }
+}

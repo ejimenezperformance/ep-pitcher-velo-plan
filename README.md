@@ -12,6 +12,8 @@
 | Drops that regained the **full** loss | 5 of 112 ≈ 4–5% | CONFIRMED (descriptive) |
 | Any of six explanations (absence, role change, age 30+, early vs late drop, in-season fade, drop size) predicts who recovers | No split passed (all BH q ≥ 0.41) | NOT CONFIRMED |
 | A leave-one-out model predicts who recovers | AUC 0.54 (95% CI 0.40–0.67) | NOT CONFIRMED |
+| Robustness: even if all 64 drops with no comparable next season had recovered | 84 of 176 = 48%, still under half | CONFIRMED (bound) |
+| Robustness: without 2018, the largest event year | 15 of 72 = 21% (95% CI 13–32%) | CONFIRMED (holds) |
 | A drop comes with losing a comparable MLB season next year (vs stable pitchers) | 36% vs 28%, p = 0.044, but 8.4 points is below the 10-point practical threshold | NOT CONFIRMED |
 
 **Front-office question:** *Which pitchers who lost velocity in 2026 need an offseason physical intervention, and which should see the medical staff first?*
@@ -33,6 +35,8 @@
 | **ROLE CHANGE** (4) | Reid Detmers, Kyle Leahy, Chase Burns, Carmen Mlodzinski | Moved from the bullpen to the rotation. A drop is expected; compare them against starters. |
 
 Notes from the injury check (annotate, not exclude): McGreevy pitched through a sprained ankle in spring and believes it affected his mechanics, a lower-body cause the plan targets. Singer had a bruised foot in May. Chapman (38) had day-to-day lat tightness in September; age is his main alternative explanation. Abreu's June absence was a personal matter (3 days). Full table: [`outputs/board_2026.csv`](outputs/board_2026.csv).
+
+**Case study:** Paul Skenes is on the physical-plan lane (−1.4 mph, no injury reported). His 2026 fastball velocity and spin decline is analyzed in depth in [`mlb-skenes-intelligence`](https://github.com/ejimenezperformance/mlb-skenes-intelligence).
 
 **Not a medical judgment.** The lanes use public data only. A team's medical and performance staff have information this repo does not.
 
@@ -64,7 +68,7 @@ Full plan and references: [`docs/offseason_plan.md`](docs/offseason_plan.md). Th
 
 **Known-answer tests.** `tests/test_synthetic.py` builds fake data where absence raises recovery, lowers it, or has no effect. The code returns CONFIRMED, CONFIRMED and NOT CONFIRMED, as it should, before any real data is used.
 
-**Sensitivity.** The low recovery rate holds for drops of 1.0 or 1.5 mph and for a 100- or 200-fastball minimum in the next season (15.8–18.6%). With drops of 2+ mph the sample is too small to read (n = 7–8). Full grid: [`outputs/sensitivity.csv`](outputs/sensitivity.csv).
+**Sensitivity.** The low recovery rate holds for drops of 1.0 or 1.5 mph and for a 100- or 200-fastball minimum in the next season (15.8–18.6%). With drops of 2+ mph the sample is too small to read (n = 7–8). Full grid: [`outputs/sensitivity.csv`](outputs/sensitivity.csv). Two extra checks in [`outputs/robustness.json`](outputs/robustness.json): the optimistic bound (every missing next season counted as recovered: 48%) and the result without 2018, the year with the most drops (21%).
 
 **Language.** "Came with," not "caused." This is an observational study.
 
@@ -83,7 +87,7 @@ python src/pull_data.py 2017 2026      # ~140 requests to Baseball Savant
 python tests/test_synthetic.py         # known-answer tests
 cd src
 python run_baseline.py                 # natural recovery, tests, model
-python sensitivity.py
+python sensitivity.py                  # threshold grid + robustness checks
 python apply_2026.py                   # 2026 board (reads data/injury_exclusions.csv)
 python charts.py
 ```
@@ -104,6 +108,8 @@ None yet. Any correction will be listed here with the date and the files affecte
 | Caídas que recuperaron **todo** lo perdido | 5 de 112 ≈ 4–5% | CONFIRMED (descriptivo) |
 | Alguna de seis explicaciones (ausencia, cambio de rol, 30+ años, caída temprana o tardía, caída durante la temporada, tamaño de la caída) predice quién recupera | Ninguna pasó (todas con q de BH ≥ 0.41) | NOT CONFIRMED |
 | Un modelo con validación leave-one-out predice quién recupera | AUC 0.54 (IC 95%: 0.40–0.67) | NOT CONFIRMED |
+| Robustez: aun si las 64 caídas sin temporada comparable se hubieran recuperado todas | 84 de 176 = 48%, todavía menos de la mitad | CONFIRMED (cota) |
+| Robustez: sin 2018, el año con más caídas | 15 de 72 = 21% (IC 95%: 13–32%) | CONFIRMED (se mantiene) |
 | Una caída viene con perder una temporada comparable en MLB (frente a pitchers estables) | 36% vs 28%, p = 0.044, pero 8.4 puntos está por debajo del umbral práctico de 10 | NOT CONFIRMED |
 
 **Pregunta de front office:** *¿Qué pitchers que perdieron velocidad en 2026 necesitan una intervención física en la offseason, y cuáles deben pasar primero por el cuerpo médico?*
@@ -122,6 +128,8 @@ None yet. Any correction will be listed here with the date and the files affecte
 
 Notas de la revisión de lesiones (anotar, no excluir): McGreevy lanzó con un esguince de tobillo en primavera y cree que le afectó la mecánica, una causa de tren inferior que el plan ataca. Singer tuvo un golpe en el pie en mayo. Chapman (38) tuvo molestia en el dorsal en septiembre, día a día; la edad es su principal explicación alternativa. La ausencia de Abreu en junio fue por un asunto personal (3 días).
 
+**Caso de estudio:** Paul Skenes está en el grupo de plan físico (−1.4 mph, sin lesión reportada). Su caída de velocidad y spin de 2026 está analizada a fondo en [`mlb-skenes-intelligence`](https://github.com/ejimenezperformance/mlb-skenes-intelligence).
+
 **No es un juicio médico.** Los grupos usan solo datos públicos. El cuerpo médico y de rendimiento de un equipo tiene información que este repo no tiene.
 
 ### El plan de 12 semanas (INTERPRETATION)
@@ -139,7 +147,7 @@ Plan completo y referencias: [`docs/offseason_plan.md`](docs/offseason_plan.md).
 - **Filtro de ausencias:** hueco de 14+ días, primer juego después del 1 de mayo o último juego antes del 1 de septiembre. Incluye bajadas a ligas menores, por eso se llama "ausencia" y no "lesión".
 - **Estadística:** Fisher exacta con corrección de Benjamini-Hochberg; CONFIRMED exige q < 0.05 y una diferencia de al menos 10 puntos. Modelo logístico con leave-one-out y bootstrap pareado.
 - **Pruebas con respuesta conocida:** datos sintéticos donde la ausencia sube, baja o no cambia la recuperación; el código da CONFIRMED, CONFIRMED y NOT CONFIRMED.
-- **Sensibilidad:** la tasa baja se mantiene con caídas de 1.0 o 1.5 mph y con mínimo de 100 o 200 rectas (15.8–18.6%).
+- **Sensibilidad:** la tasa baja se mantiene con caídas de 1.0 o 1.5 mph y con mínimo de 100 o 200 rectas (15.8–18.6%). Aun contando como recuperadas todas las caídas sin temporada comparable, la tasa es 48%. Sin 2018, el año con más caídas, es 21%.
 - **Lenguaje:** "vino con", no "causó". Es un estudio observacional.
 
 ---
